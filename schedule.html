@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create A Schedule</title>
+</head>
+<body>
+    <h2>Create a Schedule</h2>
+<form id="schedule-form">
+  <div class="date">
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required>
+  </div>
+  <div class="time-blocks">
+    <h3>Time Blocks:</h3>
+    <div class="time-block">
+      <label for="time-from">From:</label>
+      <input type="time" id="time-from" name="time_from" required>
+      <label for="time-to">To:</label>
+      <input type="time" id="time-to" name="time_to" required>
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" rows="2" placeholder="Enter your event details here..."></textarea>
+    </div>
+    </div>
+  <button type="submit">Add Event</button>
+</form>
+
+</body>
+</html>
