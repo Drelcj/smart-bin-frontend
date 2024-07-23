@@ -31,7 +31,8 @@ const giveReview = asyncHandler(async (req, res) => {
 });
 
 const getReviews = asyncHandler(async (req, res) => {
-  const reviews = await reviewModel.find({});
+  const id = req.user._id;
+  const reviews = await reviewModel.find({}).populate('user');
   const userPromises = reviews.map(async item => {
     const user = await userModel.findById(item.user);
     return {
