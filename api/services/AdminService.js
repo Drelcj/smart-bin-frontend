@@ -3,7 +3,6 @@ const userModel = require("../models/User");
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const userModel = require("../models/User");
 const { role } = require("../constants");
 const scheduleModel = require("../models/Schedule");
 

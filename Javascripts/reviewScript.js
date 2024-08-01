@@ -7,7 +7,7 @@ reviewForm.addEventListener('submit', async (event) => {
   const stars = document.getElementById('stars').value;
   const review = document.getElementById('review').value;
 
-    const response = await giveReview(stars, review);
+    const response = await submitReview(stars, review);
 
   if (response.success) {
     reviewMessage.textContent = 'Review submitted successfully!';
@@ -20,7 +20,7 @@ reviewForm.addEventListener('submit', async (event) => {
 // Function to submit review data to the backend (including user ID retrieval)
 async function submitReview(stars, review) {
   const userId = localStorage.getItem('userId'); // Get user ID from local storage
-  const url = '/give-review'; 
+  const url = 'http://localhost:4000/api/review/give-review'; 
 
   const response = await fetch(url, {
     method: 'POST',
@@ -35,7 +35,7 @@ async function submitReview(stars, review) {
 };
 
 async function getReviews() {
-    const url = '/get-reviews';
+    const url = 'http://localhost:4000/api/review/get-reviews';
   
     const response = await fetch(url);
     const data = await response.json();
@@ -75,5 +75,5 @@ async function getReviews() {
   }
   
   // Call the function to fetch reviews on page load
-  fetchReviews();
+  getReviews();
   

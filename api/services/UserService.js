@@ -1,11 +1,9 @@
 const userModel = require("../models/User");
-const rulesModel = require("../models/Rules");
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { customAlphabet } = require("nanoid");
 const { role } = require("../constants");
-const restaurantModel = require("../models/Restaurant");
 
 // Register and onboard merged together
 const registerUser = asyncHandler(async (req, res) => {
@@ -22,12 +20,13 @@ const registerUser = asyncHandler(async (req, res) => {
       res.status(400);
       throw new Error("Email already exists. Please try a different email address.");
     }
+    const newPassword = await bcrypt.hash(password, 10);
   // No password hashing, since no libraries are allowed
   const user = await userModel.create({
     email,
     firstName,
     lastName,
-    password,
+    password: newPassword,
     role: role.USER,
   });
    // We can send a verification email here if it is needed.

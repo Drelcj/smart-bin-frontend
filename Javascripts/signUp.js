@@ -1,7 +1,9 @@
 const signupForm = document.getElementById('signup-form');
 const signupButton = document.getElementById('signup-button');
 
-signupButton.addEventListener('click', async () => {
+
+signupForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
   const firstName = document.getElementById('firstName').value;
   const lastName = document.getElementById('lastName').value;
   const email = document.getElementById('contact-email').value;
@@ -12,9 +14,8 @@ signupButton.addEventListener('click', async () => {
     alert('Please fill in all fields!');
     return;
   }
-
   // Sending data to the backend using Fetch API
-  const response = await fetch('/api/users/register', {
+  const response = await fetch(`http://localhost:4000/api/user/register`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

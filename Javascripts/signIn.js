@@ -1,12 +1,12 @@
-const loginForm = document.getElementById('login-form');
+const loginForm = document.getElementById('signin-form');
 
 loginForm.addEventListener('submit', async (event) => {
   event.preventDefault(); // Prevent default form submission
 
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
+  const email = document.getElementById('login-email').value;
+  const password = document.getElementById('login-password').value;
 
-  const response = await fetch('/api/login', {
+  const response = await fetch(`http://localhost:4000/api/user/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

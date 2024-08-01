@@ -2,7 +2,7 @@ const scheduleList = document.getElementById("schedule-list");
 
 function getUserSchedules() {
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", "/get-schedules", true);
+  xhr.open("GET", "http://localhost:4000/api/schedule/get-schedules", true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onload = function () {
     if (xhr.status === 200) {
@@ -42,7 +42,7 @@ getUserSchedules();
 
 function handleCancelClick(scheduleId) {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "/cancel-schedule", true);
+    xhr.open("POST", "http://localhost:4000/api/schedule/cancel-schedule", true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onload = function () {
       if (xhr.status === 200) {

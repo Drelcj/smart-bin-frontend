@@ -2,12 +2,14 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const errorHandler = require('./api/middleware/errorHandler')
 const connectDb = require('./api/config/database')
+const cors = require('cors');
 require('dotenv').config()
 
 const app = express()
 connectDb(process.env.MONGO_URL)
 
 app.use(bodyParser.json({type: 'application/json'}))
+app.use(cors());
 app.get('/', (req, res) => {
     res.send('Server is running')
 })
