@@ -39,8 +39,6 @@ const registerUser = asyncHandler(async (req, res) => {
   });
 });
 
-
-
 const getMe = asyncHandler(async (req, res) => {
   const userId = req.user._id;
   if (!userId) {
@@ -106,11 +104,7 @@ const updatePassword = asyncHandler(async (req, res) => {
 
 module.exports = {
   registerUser,
-  onboardUser,
-  verifyOtp,
   loginUser,
-  sendVerificationCode,
   updatePassword,
-  updateUserImage,
   getMe,
 };

@@ -1,7 +1,6 @@
 const scheduleModel = require("../models/Schedule");
 const asyncHandler = require("express-async-handler");
 const userModel = require("../models/User");
-const restaurantModel = require("../models/Restaurant");
 const adminModel = require("../models/Admin");
 
 // This is for user
@@ -29,7 +28,7 @@ const createSchedule = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("User does not exist");
   }
-  const guest = await scheduleModel.create({
+  const schedule = await scheduleModel.create({
     user: id,
     address,
     time,
@@ -40,7 +39,7 @@ const createSchedule = asyncHandler(async (req, res) => {
   });
   res
     .status(200)
-    .json({ success: true, message: "Scheduled successfully", guest });
+    .json({ success: true, message: "Scheduled successfully", schedule });
 });
 
 // this is for user
@@ -58,40 +57,22 @@ const getUserSchedules = asyncHandler(async (req, res) => {
   }
   if (cancelled) {
     const reservations = await scheduleModel.find({
-      restaurant: id,
+      user: id,
       isCancelled: cancelled,
     });
-    const reservationPromises = reservations.map(async (item) => {
-      const restaurant = await restaurantModel.findById(item.restaurant);
-      return {
-        ...item.toObject(),
-        restaurant: restaurant.toObject(),
-      };
-    });
-
-    const updatedReservation = await Promise.all(reservationPromises);
     res
       .status(200)
       .json({
         success: true,
-        message: "Guest retrieved",
-        reservations: updatedReservation,
+        message: "Schedules retrieved",
+        reservations: reservations,
       });
   }
-  const reservations = await guestModel.find({ user: id });
-  const reservationPromises = reservations.map(async (item) => {
-    const restaurant = await restaurantModel.findById(item.restaurant);
-    return {
-      ...item.toObject(),
-      restaurant: restaurant.toObject(),
-    };
-  });
-
-  const updatedReservation = await Promise.all(reservationPromises);
+  const reservations = await scheduleModel.find({ user: id });
   res.status(200).json({
     success: true,
     message: "User reservations retrieved",
-    reservations: updatedReservation,
+    reservations: reservations,
   });
 });
 

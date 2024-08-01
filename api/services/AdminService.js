@@ -5,8 +5,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const userModel = require("../models/User");
 const { role } = require("../constants");
-const guestModel = require("../models/Schedule");
-const restaurantModel = require("../models/Restaurant");
+const scheduleModel = require("../models/Schedule");
 
 const registerAdmin = asyncHandler(async (req, res) => {
   const { email, password, role } = req.body;
@@ -62,18 +61,16 @@ const getAllSchedules = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Admin does not exist");
   }
-  const reservations = await guestModel.find();
-  const restaurantPromises = reservations.map(async (item) => {
-    const restaurant = await restaurantModel.findById(item.restaurant);
+  const reservations = await scheduleModel.find();
+  const reservationPromises = reservations.map(async (item) => {
     const user = await userModel.findById(item.user);
     return {
       ...item.toObject(),
-      restaurant: restaurant.toObject(),
       user: user.toObject(),
     };
   });
 
-  const allReservations = await Promise.all(restaurantPromises);
+  const allReservations = await Promise.all(reservationPromises);
   res.status(200).json({
     success: true,
     message: "Reservations found",
