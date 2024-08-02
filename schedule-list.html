@@ -3,7 +3,7 @@
 
 <head>
   <!-- Site Title-->
-  <title>Create A Schedule</title>
+  <title>Schedule Management</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css"
     href="//fonts.googleapis.com/css?family=Poppins:400,500,700%7CNoto+Sans:400,700">
   <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript" src="Javascripts/schedule.js" defer></script>
   <style>
     .ie-panel {
       display: none;
@@ -91,42 +92,8 @@
     </header>
     <section class="section-50 section-md-75 section-md-100 section-lg-120 section-xl-150 bg-wild-sand">
       <div class="container text-left">
-        <h2><span class="small">Welcome,</span>create a schedule </h2>
-        <form id="create-schedule-form" class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="contact" method="post" action="/create-schedule">
-          
-          
-          <div class="col-xl-4 col-lg-6">
-            <div class="form-wrap postfix-xl-right-40">
-              <h6>When should we pick up?</h6>
-              <label class="form-label" for="date"></label>
-              <input class="form-input" id="date" type="date" name="date" data-constraints="@Required">
-            </div>
-            <div class="form-wrap postfix-xl-right-40">
-              <h6>From what time will you be available?</h6>
-              <label class="form-label" for="time-from"></label>
-              <input class="form-input" id="time-from" type="time" name="time-from" data-constraints="@Required">
-              
-            </div>
-            <div class="form-wrap postfix-xl-right-40">
-              <h6>Until what time?</h6>
-              
-              <label class="form-label" for="time-to"></label>
-              <input class="form-input" id="time-to" type="time" name="time-to" data-constraints="@Required">
-            </div>
-            <div class="form-wrap postfix-xl-right-40">
-              <h6>Landmark (Optional)</h6>
-              <label class="form-label" for="landmark">Landmark</label>
-              <input class="form-input" id="landmark" type="text" name="landmark">
-            </div>
-            <div class="form-wrap postfix-xl-right-40">
-              <label class="form-label" for="description">Write a short message?</label>
-              <input class="form-input" id="description" type="text" name="description" data-constraints="@Required">
-            </div>
-             <br>
-            <button class="btn btn-form btn-default" type="submit">Create Schedule</button>
-          </div>
-      </div>
-      </form>
+        <h2><span class="small">Hello,</span>here's your schedule history </h2>
+        <ul id="schedule-list"></ul>
   </div>
   </section>
 

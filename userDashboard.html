@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css"
     href="//fonts.googleapis.com/css?family=Poppins:400,500,700%7CNoto+Sans:400,700">
   <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript" src="Javascripts/reviewScript.js" defer></script>
   <style>
     .ie-panel {
       display: none;
@@ -80,7 +81,7 @@
               <ul class="rd-navbar-nav">
                 <li class="active"><a href="index.html">Home</a></li>
                 
-                <li><a href="register.html">Sign Up or Log in</a></li>
+                <li><a href="#">Give a review</a></li>
                 >
                 <li><a href="schedule.html">Create a schedule</a></li>
               </ul>
@@ -91,39 +92,40 @@
     </header>
     <section class="section-50 section-md-75 section-md-100 section-lg-120 section-xl-150 bg-wild-sand">
       <div class="container text-left">
-        <h2><span class="small">Welcome,</span>create a schedule </h2>
-        <form id="create-schedule-form" class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="contact" method="post" action="/create-schedule">
+        <h2><span class="small">Welcome,</span>how are you feeling today? </h2>
+        <br>
+
+        <h5>Give us a review</h5>
+        <form id="review-form" class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="contact" method="post"
+          action="bat/rd-mailform.php">
+          <div class="row row-20 offset-top-40 offset-md-top-60">
           
-          
+          </div>
+          <div class="col-xl-4 col-lg-6">
+
+          </div>
           <div class="col-xl-4 col-lg-6">
             <div class="form-wrap postfix-xl-right-40">
-              <h6>When should we pick up?</h6>
-              <label class="form-label" for="date"></label>
-              <input class="form-input" id="date" type="date" name="date" data-constraints="@Required">
+                <label for="stars">Rating:</label>
+                <select id="stars" name="stars">
+                  <option value="1">1 Star</option>
+                  <option value="2">2 Stars</option>
+                  <option value="3">3 Stars</option>
+                  <option value="4">4 Stars</option>
+                  <option value="5">5 Stars</option>
+                </select>
+        
+                <br>
             </div>
             <div class="form-wrap postfix-xl-right-40">
-              <h6>From what time will you be available?</h6>
-              <label class="form-label" for="time-from"></label>
-              <input class="form-input" id="time-from" type="time" name="time-from" data-constraints="@Required">
-              
+                <label for="review">Review Text:</label>
+                <textarea class="form-input" id="review-message" name="review" rows="5" cols="30"></textarea>
+                <br>
             </div>
-            <div class="form-wrap postfix-xl-right-40">
-              <h6>Until what time?</h6>
-              
-              <label class="form-label" for="time-to"></label>
-              <input class="form-input" id="time-to" type="time" name="time-to" data-constraints="@Required">
-            </div>
-            <div class="form-wrap postfix-xl-right-40">
-              <h6>Landmark (Optional)</h6>
-              <label class="form-label" for="landmark">Landmark</label>
-              <input class="form-input" id="landmark" type="text" name="landmark">
-            </div>
-            <div class="form-wrap postfix-xl-right-40">
-              <label class="form-label" for="description">Write a short message?</label>
-              <input class="form-input" id="description" type="text" name="description" data-constraints="@Required">
-            </div>
-             <br>
-            <button class="btn btn-form btn-default" type="submit">Create Schedule</button>
+
+
+            <br>
+            <button type="submit" class="btn btn-form btn-default">Submit Review</button>
           </div>
       </div>
       </form>

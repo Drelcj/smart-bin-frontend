@@ -9,6 +9,8 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Poppins:400,500,700%7CNoto+Sans:400,700">
     <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="Javascripts/signUp.js" defer></script>
+    <script type="text/javascript" src="Javascripts/signIn.js" defer></script>
     <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
   </head>
   <body>
@@ -67,29 +69,35 @@
       <section class="section-50 section-md-75 section-md-100 section-lg-120 section-xl-150 bg-wild-sand">
         <div class="container text-left">
           <h2><span class="small">Welcome</span>Log in or Sign up if you don&apos;t already have an account with us. </h2>
-          <form class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
-            <div class="row row-20 offset-top-40 offset-md-top-60">
-              <div class="col-xl-4 col-lg-6">
+          <div class="row row-20 offset-top-40 offset-md-top-60">
+            <div class="col-xl-4 col-lg-6">
+          <form id="signin-form" class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="contact">
                  <div class="form-wrap postfix-xl-right-40">
-                  <label class="form-label" for="contact-email">E-mail *</label>
-                  <input class="form-input" id="contact-email" type="email" name="email" data-constraints="@Email @Required">
-                </div>
+                    <label class="form-label" for="login-email">E-mail *</label>
+                    <input class="form-input" id="login-email" type="email" name="email" data-constraints="@Email @Required">
+                 </div>
                 <div class="form-wrap postfix-xl-right-40">
                   <label class="form-label" for="contact-name">Password *</label>
-                  <input class="form-input" id="contact-name" type="text" name="name" data-constraints="@Required">
+                  <input class="form-input" id="login-password" type="password" name="login-password" data-constraints="@Required">
                 </div>
                 <br>
                 <div>
-                  <button class="btn btn-form btn-default" type="submit">Log in</button>
+                  <button id="login-form" class="btn btn-form btn-default" type="submit">Log in</button>
                 </div>
-              </div>
-              <div class="col-xl-4 col-lg-6">
+            </form>
+            </div>
+            <div class="col-xl-4 col-lg-6">
                 
-              </div>
-              <div class="col-xl-4 col-lg-6">
+            </div>
+            <div class="col-xl-4 col-lg-6">
+                <form id="signup-form" class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="contact">
                 <div class="form-wrap postfix-xl-right-40">
-                  <label class="form-label" for="contact-name">Name *</label>
-                  <input class="form-input" id="contact-name" type="text" name="name" data-constraints="@Required">
+                  <label class="form-label" for="firstName">First Name:</label>
+                  <input class="form-input" id="firstName" type="text" name="firstName" data-constraints="@Required">
+                </div>
+                <div class="form-wrap postfix-xl-right-40">
+                  <label class="form-label" for="lastName">Last Name</label>
+                  <input class="form-input" id="lastName" type="text" name="name" data-constraints="@Required">
                 </div>
                 <div class="form-wrap postfix-xl-right-40">
                   <label class="form-label" for="contact-email">E-mail *</label>
@@ -97,14 +105,13 @@
                 </div>
                 <div class="form-wrap postfix-xl-right-40">
                   <label class="form-label" for="contact-company">Password *</label>
-                  <input class="form-input" id="contact-company" type="text" name="company" data-constraints="@Required">
+                  <input class="form-input" id="password" type="text" name="company" data-constraints="@Required">
                 </div>
-            
                 <br>
-                <button class="btn btn-form btn-default" type="submit">Sign Up</button>
-              </div>
+                <button id="signup-button" class="btn btn-form btn-default" type="submit">Sign Up</button>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
       </section>
     
